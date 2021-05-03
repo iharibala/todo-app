@@ -1,0 +1,26 @@
+{% load staticfiles %}
+
+ <head>
+ 	
+    <link rel="stylesheet"  href="{%  static  'css/style.css'  %}">
+    <title>ToDo App</title>
+ </head>
+<center><h1 style="background-color:Tomato;" ><i>My To Do List</h1></i></center>
+
+<center><form action="/addTodoItem/" method = "post">{% csrf_token %}
+    <input type="text" name="content">
+    <input type="submit" value="Add Todo Item">
+</form></center>
+
+
+ <ul>
+    {% for i in all_items %} 
+    <li>{{i.content}}
+        <form action="/deleteTodoItem/{{i.id}}/" method = "post">{% csrf_token %}
+            <input type="submit" value="Delete">
+        </form> 
+    </li>
+    {% endfor %}
+</ul>
+
+
