@@ -1,2 +1,2 @@
 # todo-app
-My first Django project
+An app to add remainders for our Todo activities-Developed using Django
